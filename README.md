@@ -1,1 +1,1 @@
-Nail Salon Client Relationship Mananger Demo
+[Nail Salon Client Relationship Mananger Demo](https://nail-salon-demo.herokuapp.com/)
