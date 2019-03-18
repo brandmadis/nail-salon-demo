@@ -1,4 +1,4 @@
-{% extends 'app/base.html' %}
+{% extends 'nailsalon/base.html' %}
 {% block content %}
 
    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.css">-->
@@ -226,7 +226,7 @@
                       <!-- <h5>Traditional Standard Style</h5> -->
                       <form action="app/hours_save2" method="POST" role="form" id="hours-form">
                         {% csrf_token %}
-                      {% for x in hours2 %}
+                      {% for x in hours %}
                             <div class="form-group">
                               <label>{{ x.day }}</label>
                               <div class="row">

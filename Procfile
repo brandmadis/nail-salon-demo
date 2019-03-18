@@ -1,1 +1,1 @@
-web: gunicorn nail_salon_demo.wsgi
+web: gunicorn settings.wsgi

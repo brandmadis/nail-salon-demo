@@ -1,4 +1,4 @@
-{% extends 'app/cust_base.html' %} {% block content %}
+{% extends 'nailsalon/cust_base.html' %} {% block content %}
 
 <body id="start_nicdark_framework">
 
@@ -26,7 +26,7 @@
                         <div class="nicdark_focus center">
                             <h1 style="font-size:60px;" class="white extrasize signature">{{ info.name }}</h1>
                             <div class="nicdark_space30"></div>
-                            <a href="{% url 'app:cust_appt' %}" class="nicdark_press white nicdark_btn nicdark_bg_bluedark medium title">REQUEST AN APPOINTMENT</a>
+                            <a href="{% url 'nailsalon:cust_appt' %}" class="nicdark_press white nicdark_btn nicdark_bg_bluedark medium title">REQUEST AN APPOINTMENT</a>
                         </div>
 
                     </div>
@@ -131,9 +131,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/excanvas.js"></script>
         <!--canvas need for ie-->
         <!--plugins-->
-        <script src="static/app/js/plugins/revslider/jquery.themepunch.tools.min.js"></script>
+        <script src="static/nailsalon/js/plugins/revslider/jquery.themepunch.tools.min.js"></script>
         <!--revslider-->
-        <script src="static/app/js/plugins/revslider/jquery.themepunch.revolution.min.js"></script>
+        <script src="static/nailsalon/js/plugins/revslider/jquery.themepunch.revolution.min.js"></script>
         <!--revslider-->
 
         <!--menu-->
@@ -147,9 +147,9 @@
         <!--isotope-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!--mpopup-->
-        <script src="static/app/js/plugins/scroolto/scroolto.js"></script>
+        <script src="static/nailsalon/js/plugins/scroolto/scroolto.js"></script>
         <!--Scrool To-->
-        <script src="static/app/js/plugins/nicescrool/jquery.nicescroll.min.js"></script>
+        <script src="static/nailsalon/js/plugins/nicescrool/jquery.nicescroll.min.js"></script>
         <!--Nice Scroll-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js"></script>
         <!--inview-->
@@ -161,7 +161,7 @@
         <!--countdown-->
 
         <!--settings-->
-        <script src="static/app/js/settings.js"></script>
+        <script src="static/nailsalon/js/settings.js"></script>
         <!--settings-->
         <!-- Google Map API -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWjGNvQ4ciDv91edoVJKukEMdYjoRzyeU&callback=myMap"></script>
@@ -289,7 +289,7 @@
                         content: contentString
                     });
 
-                    var image = new google.maps.MarkerImage("static/app/img/icons/map.png", null, null, null, new google.maps.Size(50, 50));
+                    var image = new google.maps.MarkerImage("static/nailsalon/img/icons/map.png", null, null, null, new google.maps.Size(50, 50));
 
                     var positionpin = new google.maps.LatLng({{ info.lat }}, {{ info.lon }});
 

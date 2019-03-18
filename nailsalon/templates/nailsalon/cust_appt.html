@@ -1,4 +1,4 @@
-{% extends 'app/cust_base.html' %}
+{% extends 'nailsalon/cust_base.html' %}
 {% block content %}
 <body id="start_nicdark_framework">
 
@@ -100,27 +100,27 @@
     </div>
 
     <!--main-->
-    <script src="static/app/js/main/jquery.min.js"></script> <!--Jquery-->
-    <script src="static/app/js/main/jquery-ui.js"></script> <!--Jquery UI-->
-    <script src="static/app/js/main/excanvas.js"></script> <!--canvas need for ie-->
+    <script src="static/nailsalon/js/main/jquery.min.js"></script> <!--Jquery-->
+    <script src="static/nailsalon/js/main/jquery-ui.js"></script> <!--Jquery UI-->
+    <script src="static/nailsalon/js/main/excanvas.js"></script> <!--canvas need for ie-->
 
     <!--plugins-->
-    <script src="static/app/js/plugins/revslider/jquery.themepunch.tools.min.js"></script> <!--revslider-->
-    <script src="static/app/js/plugins/revslider/jquery.themepunch.revolution.min.js"></script> <!--revslider-->
+    <script src="static/nailsalon/js/plugins/revslider/jquery.themepunch.tools.min.js"></script> <!--revslider-->
+    <script src="static/nailsalon/js/plugins/revslider/jquery.themepunch.revolution.min.js"></script> <!--revslider-->
 
     <!--menu-->
-    <script src="static/app/js/plugins/menu/superfish.min.js"></script> <!--superfish-->
-    <script src="static/app/js/plugins/menu/tinynav.min.js"></script> <!--tinynav-->
+    <script src="static/nailsalon/js/plugins/menu/superfish.min.js"></script> <!--superfish-->
+    <script src="static/nailsalon/js/plugins/menu/tinynav.min.js"></script> <!--tinynav-->
 
     <!--other-->
-    <script src="static/app/js/plugins/isotope/isotope.pkgd.min.js"></script> <!--isotope-->
-    <script src="static/app/js/plugins/mpopup/jquery.magnific-popup.min.js"></script> <!--mpopup-->
-    <script src="static/app/js/plugins/scroolto/scroolto.js"></script> <!--Scrool To-->
-    <script src="static/app/js/plugins/nicescrool/jquery.nicescroll.min.js"></script> <!--Nice Scroll-->
-    <script src="static/app/js/plugins/inview/jquery.inview.min.js"></script> <!--inview-->
-    <script src="static/app/js/plugins/parallax/jquery.parallax-1.1.3.js"></script> <!--parallax-->
-    <script src="static/app/js/plugins/countto/jquery.countTo.js"></script> <!--jquery.countTo-->
-    <script src="static/app/js/plugins/countdown/jquery.countdown.js"></script> <!--countdown-->
+    <script src="static/nailsalon/js/plugins/isotope/isotope.pkgd.min.js"></script> <!--isotope-->
+    <script src="static/nailsalon/js/plugins/mpopup/jquery.magnific-popup.min.js"></script> <!--mpopup-->
+    <script src="static/nailsalon/js/plugins/scroolto/scroolto.js"></script> <!--Scrool To-->
+    <script src="static/nailsalon/js/plugins/nicescrool/jquery.nicescroll.min.js"></script> <!--Nice Scroll-->
+    <script src="static/nailsalon/js/plugins/inview/jquery.inview.min.js"></script> <!--inview-->
+    <script src="static/nailsalon/js/plugins/parallax/jquery.parallax-1.1.3.js"></script> <!--parallax-->
+    <script src="static/nailsalon/js/plugins/countto/jquery.countTo.js"></script> <!--jquery.countTo-->
+    <script src="static/nailsalon/js/plugins/countdown/jquery.countdown.js"></script> <!--countdown-->
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
 
@@ -128,7 +128,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.min.js"></script>
 
     <!--settings-->
-    <script src="static/app/js/settings.js"></script> <!--settings-->
+    <script src="static/nailsalon/js/settings.js"></script> <!--settings-->
 <!--custom js-->
 
 <script type="text/javascript">
@@ -143,7 +143,7 @@
         function appt_request() {
             console.log("appt request hit")
             $.ajax({
-                url: "/service/appt_request",
+                url: "/appt_request",
                 type: "POST",
                 data: {
                           'csrfmiddlewaretoken': '{{csrf_token}}',

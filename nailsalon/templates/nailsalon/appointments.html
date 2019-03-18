@@ -1,4 +1,4 @@
-{% extends 'app/base.html' %}
+{% extends 'nailsalon/base.html' %}
 {% block content %}
           <!-- START CONTAINER FLUID -->
           <div class=" container    container-fixed-lg">
@@ -11,10 +11,9 @@
                     </div><br>
                   </div>
                   <div class="card-block">
-                    <a href="{% url 'app:appt_add' %}">
+                    <a href="{% url 'nailsalon:appt_add' %}">
                     <button class="btn btn-primary">Add Appointment</button></a>
                     <div class="table-responsive">
-
                         <table class="table table-hover" id="basicTable">
                           <thead>
                             <tr>
@@ -32,33 +31,33 @@
                             </tr>
                           </thead>
                           <tbody>
-                            {% for x in appts %}
+                            {% for info in appts %}
                             <tr>
                               <td class="v-align-middle ">
-                                <p>{{ x.name }}</p>
+                                <p>{{ info.name }}</p>
                               </td>
                               <td class="v-align-middle">
-                                <p>{{ x.email }}</p>
+                                <p>{{ info.email }}</p>
                               </td>
                               <td class="v-align-middle">
-                                <p>{{ x.phone }}</p>
+                                <p>{{ info.phone }}</p>
                               </td>
                               <td class="v-align-middle">
-                                <p>{{ x.price }}</p>
+                                <p>{{ info.price }}</p>
                               </td>
                               <td class="v-align-middle">
-                                <p>{{ x.datetime }}</p>
+                                <p>{{ info.datetime }}</p>
                               </td>
                               <td class="v-align-middle">
-                                <a href="{% url 'app:appt_accept' x.id %}"><button type="button" class="btn btn-success"><i class="fa fa-check"></i>
+                                <a href="{% url 'nailsalon:appt_accept' info.id %}"><button type="button" class="btn btn-success"><i class="fa fa-check"></i>
                                 </button></a>
                               </td>
                               <td class="v-align-middle">
-                                <a href="{% url 'app:appt_edit' x.id %}"><button type="button" class="btn btn-success"><i class="fa fa-pencil"></i>
+                                <a href="{% url 'nailsalon:appt_edit' info.id %}"><button type="button" class="btn btn-success"><i class="fa fa-pencil"></i>
                                 </button></a>
                               </td>
                               <td class="v-align-middle">
-                                <a href="{% url 'app:appt_delete' x.id %}"><button type="button" class="btn btn-success"><i class="fa fa-trash-o"></i>
+                                <a href="{% url 'nailsalon:appt_delete' info.id %}"><button type="button" class="btn btn-success"><i class="fa fa-trash-o"></i>
                                 </button></a>
                               </td>
                               
