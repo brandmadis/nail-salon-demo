@@ -1,0 +1,37 @@
+/*HOME PAGE 2*/
+.nicdark_homepage2_img1{ background-image:url(../img/under-slide/home2-img1.jpg); background-size:cover; }
+.nicdark_homepage2_img2{ background-image:url(../img/under-slide/home2-img2.jpg); background-size:cover; }
+.nicdark_homepage2_img3{ background-image:url(../img/under-slide/home2-img3.jpg); background-size:cover; }
+.nicdark_homepage2_img4{ background-image:url(../img/under-slide/home2-img4.jpg); background-size:cover; }
+.nicdark_homepage2_img5{ background-image:url(../img/banners/img1.jpg); background-size:cover; }
+.nicdark_homepage2_img6{ background-image: url(../img/banners/home2-img1.jpg); background-size: cover; background-position: right; }
+.nicdark_homepage2_img7{ background:url(../img/parallax/contact-1-img2.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_homepage2_img8{ background-image: url(../img/banners/home2-img2.jpg); background-size: cover; }
+.nicdark_homepage2_img9{ background-image: url(../img/banners/home2-img3.jpg); background-size: cover; background-position: center; }
+.nicdark_homepage2_img10{ background-image: url(../img/banners/home2-img4.jpg); background-size: cover; background-position: center;}
+.nicdark_homepage2_img11{ background:url(../img/parallax/home-2-img4-2.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_homepage2_img12{ background:url(../img/parallax/home-2-img5-2.jpg) 50% 0 fixed; background-size:cover; }
+
+/*gallery home*/
+.nicdark_homepage2_gallery_img1{ background:url(../img/gallery/img1.jpg); background-size:cover; }
+.nicdark_homepage2_gallery_img2{ background:url(../img/gallery/img2.jpg); background-size:cover; }
+.nicdark_homepage2_gallery_img3{ background:url(../img/gallery/img3.jpg); background-size:cover; }
+.nicdark_homepage2_gallery_img4{ background:url(../img/gallery/img4.jpg); background-size:cover; }
+.nicdark_homepage2_gallery_img5{ background:url(../img/gallery/img5.jpg); background-size:cover; }
+.nicdark_homepage2_gallery_img6{ background:url(../img/gallery/img6.jpg); background-size:cover; }
+.nicdark_homepage2_gallery_img7{ background:url(../img/gallery/img7.jpg); background-size:cover; }
+.nicdark_homepage2_gallery_img8{ background:url(../img/gallery/img8.jpg); background-size:cover; }
+
+
+/*SINGLE DESIGNER*/
+.nicdark_singledesigner_img1 { background:url(../img/parallax/single-designer-img1.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_singledesigner_img2 { background:url(../img/parallax/single-designer-img2.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_singledesigner_img3 { background:url(../img/parallax/single-designer-img3.jpg) 50% 0 fixed; background-size:cover; }
+
+
+/*CONTACT 1*/
+.nicdark_contact1_img1 { background:url(../img/parallax/contact-1-img1.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_contact1_img2 { background:url(../img/parallax/contact-1-img2.jpg) 50% 0 fixed; background-size:cover; }
+
+/*CONTACT 2*/
+.nicdark_contact2_img1 { background:url(../img/parallax/contact-2-img1.jpg) 50% 0 fixed; background-size:cover; }

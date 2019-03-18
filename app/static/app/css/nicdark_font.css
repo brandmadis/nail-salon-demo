@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "fashion-atelier-font";
+  src:url("../font/fashion-atelier/fashion-atelier-font.eot");
+  src:url("../font/fashion-atelier/fashion-atelier-font.eot?#iefix") format("embedded-opentype"),
+    url("../font/fashion-atelier/fashion-atelier-font.woff") format("woff"),
+    url("../font/fashion-atelier/fashion-atelier-font.ttf") format("truetype"),
+    url("../font/fashion-atelier/fashion-atelier-font.svg#fashion-atelier-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[class^="nicdark_icon-"]:before,
+[class*=" nicdark_icon-"]:before {
+  font-family: "fashion-atelier-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nicdark_icon-acupuncture:before {
+  content: "a";
+}
+.nicdark_icon-marriage:before {
+  content: "b";
+}
+.nicdark_icon-stylish2:before {
+  content: "c";
+}
+.nicdark_icon-suit2:before {
+  content: "d";
+}
+.nicdark_icon-meter3:before {
+  content: "e";
+}
+.nicdark_icon-bell56:before {
+  content: "f";
+}
+.nicdark_icon-bow4:before {
+  content: "g";
+}
+.nicdark_icon-meter5:before {
+  content: "h";
+}
+.nicdark_icon-suit3:before {
+  content: "i";
+}
+.nicdark_icon-tie:before {
+  content: "j";
+}
+.nicdark_icon-meter7:before {
+  content: "k";
+}
+.nicdark_icon-bunch1:before {
+  content: "l";
+}
+.nicdark_icon-cake36:before {
+  content: "m";
+}
+.nicdark_icon-needle3:before {
+  content: "n";
+}
+.nicdark_icon-tie9:before {
+  content: "o";
+}
+.nicdark_icon-tie10:before {
+  content: "p";
+}
+.nicdark_icon-needle4:before {
+  content: "q";
+}
+.nicdark_icon-cake36-1:before {
+  content: "r";
+}
+.nicdark_icon-dress:before {
+  content: "s";
+}
+.nicdark_icon-needle5:before {
+  content: "t";
+}
+.nicdark_icon-wedding10:before {
+  content: "u";
+}
+.nicdark_icon-wedding11:before {
+  content: "v";
+}
+.nicdark_icon-ribbon20:before {
+  content: "w";
+}
+.nicdark_icon-dress2:before {
+  content: "x";
+}
+.nicdark_icon-flower80:before {
+  content: "y";
+}
+.nicdark_icon-ring26:before {
+  content: "z";
+}
+.nicdark_icon-wide4:before {
+  content: "A";
+}
+.nicdark_icon-yarn:before {
+  content: "B";
+}
+.nicdark_icon-rings4:before {
+  content: "C";
+}
+.nicdark_icon-flower196:before {
+  content: "D";
+}
+.nicdark_icon-rose11:before {
+  content: "E";
+}
+.nicdark_icon-sewing11:before {
+  content: "F";
+}
+.nicdark_icon-formal:before {
+  content: "G";
+}
+.nicdark_icon-heart95:before {
+  content: "H";
+}
+.nicdark_icon-shoes12:before {
+  content: "I";
+}
+.nicdark_icon-flower165:before {
+  content: "J";
+}

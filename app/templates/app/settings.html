@@ -1,0 +1,737 @@
+{% extends 'app/base.html' %}
+{% block content %}
+
+   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.css">-->
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.js"></script>-->
+          <!-- START CONTAINER FLUID -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.194.0.min.js"></script>
+          
+          <div class=" container    container-fixed-lg">
+            <div class="row">
+              <div class="col-lg-6">
+
+
+                  <!-- START card -->
+                  <div class="card card-default">
+                    <div class="card-header ">
+                      <div class="card-title">
+                        Nail salon information
+                      </div>
+                    </div>
+                    <div class="card-block">
+                      <!-- <h5>Traditional Standard Style</h5> -->
+                      <form action="/company_info_save" method="POST"role="form" id="info-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                          <label>Name</label>
+                          <!-- <span class="help">e.g. "Flashy nails"</span> -->
+                          <input type="text" class="form-control" placeholder="ex: Flashy nails" value="{{ info.name }}" name="name" maxlength="50" id="name" required>
+                        </div>
+                        <div class="form-group">
+                          <label>Address</label>
+                          <!-- <span class="help"></span> -->
+                          <input type="text" class="form-control" placeholder="ex: 123 Anywhere street" value="{{ info.address }}" name="address" maxlength="50" id="address" required>
+                        </div>
+
+                        <div class="form-group">
+                          <label>City</label>
+                          <!-- <span class="help">e.g. "Los Angeles"</span> -->
+                          <input type="city" class="form-control" placeholder="ex: Los Angeles"  value="{{ info.city }}" name="city" maxlength="50" id="city" required>
+                        </div>
+                      <div class="row">
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>State </label>
+                            <!-- <span class="help">e.g. "California"</span> -->
+                            <!--test-->
+		<select class="form-control" id="state" name="state">
+			<option value="AK">Alaska</option>
+			<option value="AL">Alabama</option>
+			<option value="AR">Arkansas</option>
+			<option value="AZ">Arizona</option>
+			<option value="CA">California</option>
+			<option value="CO">Colorado</option>
+			<option value="CT">Connecticut</option>
+			<option value="DC">District of Columbia</option>
+			<option value="DE">Delaware</option>
+			<option value="FL">Florida</option>
+			<option value="GA">Georgia</option>
+			<option value="HI">Hawaii</option>
+			<option value="IA">Iowa</option>
+			<option value="ID">Idaho</option>
+			<option value="IL">Illinois</option>
+			<option value="IN">Indiana</option>
+			<option value="KS">Kansas</option>
+			<option value="KY">Kentucky</option>
+			<option value="LA">Louisiana</option>
+			<option value="MA">Massachusetts</option>
+			<option value="MD">Maryland</option>
+			<option value="ME">Maine</option>
+			<option value="MI">Michigan</option>
+			<option value="MN">Minnesota</option>
+			<option value="MO">Missouri</option>
+			<option value="MS">Mississippi</option>
+			<option value="MT">Montana</option>
+			<option value="NC">North Carolina</option>
+			<option value="ND">North Dakota</option>
+			<option value="NE">Nebraska</option>
+			<option value="NH">New Hampshire</option>
+			<option value="NJ">New Jersey</option>
+			<option value="NM">New Mexico</option>
+			<option value="NV">Nevada</option>
+			<option value="NY">New York</option>
+			<option value="OH">Ohio</option>
+			<option value="OK">Oklahoma</option>
+			<option value="OR">Oregon</option>
+			<option value="PA">Pennsylvania</option>
+			<option value="PR">Puerto Rico</option>
+			<option value="RI">Rhode Island</option>
+			<option value="SC">South Carolina</option>
+			<option value="SD">South Dakota</option>
+			<option value="TN">Tennessee</option>
+			<option value="TX">Texas</option>
+			<option value="UT">Utah</option>
+			<option value="VA">Virginia</option>
+			<option value="VT">Vermont</option>
+			<option value="WA">Washington</option>
+			<option value="WI">Wisconsin</option>
+			<option value="WV">West Virginia</option>
+			<option value="WY">Wyoming</option>
+</select>                          </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                              <label>Zip</label>
+                              <!-- <span class="help">e.g. "some@example.com"</span> -->
+                              <input type="text" class="form-control" placeholder="ex: 90210"  value="{{ info.zipcode }}" name="zipcode"  maxlength="5" pattern=".{5}" title="zip must be 5 digits" id="zipcode" required>
+                            </div>
+
+                        </div>
+
+                      </div>
+
+                          <div class="form-group">
+                            <label>Phone number</label>
+                            <!-- <span class="help">e.g. "Los Angeles"</span> -->
+                            <input type="text" class="form-control" placeholder="ex: 626-242-1232"  value="{{ info.phone }}" id="phone" name="phone">
+                          </div>
+                          <div class="form-group">
+                            <label>Email</label>
+                            <!-- <span class="help">e.g. "Los Angeles"</span> -->
+                            <input type="email" class="form-control" placeholder="ex: example@mysite.com"  value="{{ info.email }}" name="email" id="email">
+                          </div>
+                          <div class="form-group">
+                            <button class="btn btn-primary btn-cons">Save</button>
+                            <button type="button" class="btn btn-default" onclick="goBack()">Cancel</button>
+                            
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- END card -->
+
+
+                                      <!-- START card -->
+                                      <div class="card card-default">
+                                        <div class="card-header ">
+                                          <div class="card-title">
+                                            Billing
+                                          </div>
+                                        </div>
+                                        <div class="card-block">
+                                          <!-- <h5>Traditional Standard Style</h5> -->
+                                          <form action="/stripe_save" method="POST" role="form" id="stripe-form"> 
+                                          {% csrf_token %}
+                                            <div class="form-group">
+                                              <label>Stripe API key</label>
+                                              <span class="help">Used for credit card processing</span>
+                                              <input type="text" 
+                                                class="form-control" 
+                                                placeholder="ex: 123-456-789"
+                                                value="{{ stripe.stripe }}"
+                                                maxlength="50"
+                                                name="stripe"
+                                                id="stripe-text">
+                                            </div>
+
+                                              <div class="form-group">
+                                                <p><button class="btn btn-primary btn-cons">Save</button></p>
+                                              </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                      <!-- END card -->
+
+
+                                      <!-- START card -->
+                                      <div class="card card-default">
+                                        <div class="card-header ">
+                                          <div class="card-title">
+                                            Social media
+                                          </div>
+                                        </div>
+                                        <div class="card-block">
+                                          <!-- <h5>Traditional Standard Style</h5> -->
+                                          <form action="/social_media_save" method="POST" role="form" id="social-form">
+                                            {% csrf_token%}
+                                            <div class="form-group">
+                                              <label>Facebook</label>
+                                              <!-- <span class="help">e.g. "Flashy nails"</span> -->
+                                              <input type="text" class="form-control" 
+                                                value="{{ facebook.username }}" 
+                                                placeholder="User Name"
+                                                name="facebook"
+                                                id="fb">
+                                            </div>
+                                            <div class="form-group">
+                                              <label>Twitter</label>
+                                              <!-- <span class="help"></span> -->
+                                              <input type="text" class="form-control" 
+                                                value="{{ twitter.username }}" 
+                                                placeholder="User Name"
+                                                name="twitter"
+                                                id="tw">
+                                            </div>
+
+                                            <div class="form-group">
+                                              <label>Instagram</label>
+                                              <!-- <span class="help">e.g. "Los Angeles"</span> -->
+                                              <input type="city" class="form-control" 
+                                                value="{{ instagram.username }}" 
+                                                placeholder="User Name"
+                                                name="instagram" 
+                                                id="in">
+                                            </div>
+                                              <div class="form-group">
+                                                <p><button class="btn btn-primary btn-cons">Save</button></p>
+                                              </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                      <!-- END card -->
+              </div>
+                <div class="col-lg-6">
+
+                  <!-- START card -->
+                  <div class="card card-default">
+                    <div class="card-header ">
+                      <div class="card-title">
+                        Hours
+                      </div>
+                    </div>
+                    <div class="card-block">
+                      <!-- <h5>Traditional Standard Style</h5> -->
+                      <form action="app/hours_save2" method="POST" role="form" id="hours-form">
+                        {% csrf_token %}
+                      {% for x in hours2 %}
+                            <div class="form-group">
+                              <label>{{ x.day }}</label>
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="input-group bootstrap-timepicker">
+                                    <input type="text" class="form-control timepicker" name="{{x.day}}_open" required
+                                    {% if x.is_closed %}disabled value="" {% else %}  value="{{ x.open_time }}"{% endif %} id="{{x.day}}_open">
+                                    &nbsp;
+                                    <div class="input-group-addon" >to</div>
+                                    &nbsp;
+                                    <input type="text" class="form-control timepicker" name="sun_close" required
+                                    {% if x.is_closed %}disabled value="" {% else %}value="{{ x.close_time }}" {% endif %} id="{{x.day}}_close">
+                                  </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="checkbox">
+                                    <input type="checkbox" {% if x.is_closed %}checked="checked"{% endif %} id="checkbox{{x.day_order}}" name="{{x.day}}_off">
+                                    <label for="checkbox{{x.day_order}}">Closed</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                      {% endfor %}
+                          <div class="form-group">
+                            <p><button class="btn btn-primary btn-cons">Save</button></p>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- END card -->
+
+
+                  <!-- START card -->
+                  <div class="card card-default">
+                    <div class="card-header ">
+                      <div class="card-title">
+                        Image backgrounds
+                      </div>
+                    </div>
+                    <div class="card-block">
+                      <!-- <h5>Traditional Standard Style</h5> -->
+                      <!--<form role="form">-->
+                        <div class="form-group">
+                          <label>Homepage</label><br>
+                          {% if info.dash_image != None %}
+                          <img src="{{ info.dash_image }}"
+                            width="400" height="300">
+                          {% endif %}
+                          <input type="file" name="fileToUpload" id="dash">
+                          <button class="nail_file_upload btn btn-primary btn-cons" onclick=addPhoto("dash") >Upload</button>
+
+
+
+                        </div>
+                        <div class="form-group">
+                          <label>Appointments</label><br>
+                          {% if info.appt_image != None %}
+                          <img src="{{ info.appt_image }}"
+                            width="400" height="300">
+                          {% endif %}
+                          <input type="file" name="fileToUpload" id="appt">
+                          <button class="nail_file_upload btn btn-primary btn-cons" onclick=addPhoto("appt")>Upload</button>
+                          
+                          <div id="app1"></div>
+                          
+                           <span class="help"></span>
+                          <!--<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">-->
+
+                        </div>
+                        <form action="image_save" method="POST" id="target">
+                          {% csrf_token %}
+                          <input type="hidden" name="dash_form" value="{{ info.dash_image }}" id="dash_form" size="200"><br>
+                          <input type="hidden" name="appt_form" value="{{ info.appt_image }}" id="appt_form" size="200">
+                          
+                        </form>
+
+                          <!--<div class="form-group">-->
+                          <!--  <p><button class="btn btn-primary btn-cons">Upload</button></p>-->
+                          <!--</div>-->
+                      <!--</form>-->
+                    </div>
+                  </div>
+                  <!-- END card -->
+                </div>
+            </div>
+          </div>
+          <!-- END CONTAINER FLUID -->
+        </div>
+        <!-- END PAGE CONTENT -->
+        <!-- START COPYRIGHT -->
+        <!-- START CONTAINER FLUID -->
+        <!-- START CONTAINER FLUID -->
+        <div class=" container   container-fixed-lg footer">
+
+        </div>
+        <!-- END COPYRIGHT -->
+      </div>
+      <!-- END PAGE CONTENT WRAPPER -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+    <!--START QUICKVIEW -->
+    <div id="quickview" class="quickview-wrapper" data-pages="quickview">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs">
+        <li class="" data-target="#quickview-notes" data-toggle="tab">
+          <a href="#">Notes</a>
+        </li>
+        <li data-target="#quickview-alerts" data-toggle="tab">
+          <a href="#">Alerts</a>
+        </li>
+        <li class="active" data-target="#quickview-chat" data-toggle="tab">
+          <a href="#">Chat</a>
+        </li>
+      </ul>
+      <a class="btn-link quickview-toggle" data-toggle-element="#quickview" data-toggle="quickview"><i class="pg-close"></i></a>
+      <!-- Tab panes -->
+    </div>
+    
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.min.js"></script>
+    <!--<script src="/static/manager/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>-->
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('#hours-form').on('submit', function(event){
+  console.log("form hit")
+  event.preventDefault();
+  hours_post();
+})
+function hours_post() {
+  $.ajax({
+    url: "/service/hours_save2",
+    type: 'POST',
+    data: {
+      'csrfmiddlewaretoken': '{{csrf_token}}',
+      'Sunday_open':$('#Sunday_open').val(),
+      'Sunday_close':$('#Sunday_close').val(),
+      'Sunday_off':$('#checkbox1')[0].checked,
+      'Monday_open':$('#Monday_open').val(),
+      'Monday_close':$('#Monday_close').val(),
+      'Monday_off':$('#checkbox2')[0].checked,
+      'Tuesday_open':$('#Tuesday_open').val(),
+      'Tuesday_close':$('#Tuesday_close').val(),
+      'Tuesday_off':$('#checkbox3')[0].checked,
+      'Wednesday_open':$('#Wednesday_open').val(),
+      'Wednesday_close':$('#Wednesday_close').val(),
+      'Wednesday_off':$('#checkbox4')[0].checked,
+      'Thursday_open':$('#Thursday_open').val(),
+      'Thursday_close':$('#Thursday_close').val(),
+      'Thursday_off':$('#checkbox5')[0].checked,
+      'Friday_open':$('#Friday_open').val(),
+      'Friday_close':$('#Friday_close').val(),
+      'Friday_off':$('#checkbox6')[0].checked,
+      'Saturday_open':$('#Saturday_open').val(),
+      'Saturday_close':$('#Saturday_close').val(),
+      'Saturday_off':$('#checkbox7')[0].checked,
+    },
+    // https://stackoverflow.com/a/901727/244623
+    success : function(json) {
+      $('body').pgNotification({'style': 'flip', 'message':json}).show();
+    }
+  })
+}
+  
+$('#info-form').on('submit', function(event){
+  event.preventDefault();
+  console.log("info form submitted")
+  info_post();
+})  
+function info_post() {
+  console.log("Info post is working")
+  $.ajax({
+    url: "/service/company_info_save",
+    type: "POST",
+    data: {
+      'csrfmiddlewaretoken': '{{csrf_token}}',
+      'name': $('#name').val(),
+      'address': $('#address').val(),
+      'city': $('#city').val(),
+      'state': $('#state').val(),
+      'zipcode': $('#zipcode').val(),
+      'phone': $('#phone').val(),
+      'email': $('#email').val(),
+    },
+    success : function(json) {
+      console.log(json);
+      $('body').pgNotification({'style': 'flip', 'message':json}).show();
+    },
+    error : function(xhr,errmsg,err) {
+        $('body').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+    }
+    
+  })
+}
+$('#social-form').on('submit', function(event){
+  event.preventDefault();
+  console.log("form submitted!")
+  social_post();
+})
+function social_post() {
+  console.log("Social post is working")
+  $.ajax({
+    url : "/service/social_media_save",
+    type : "POST",
+    data : {
+      'csrfmiddlewaretoken': '{{csrf_token}}',
+      'facebook': $('#fb').val(),
+      'twitter': $('#tw').val(),
+      'instagram':$('#in').val()
+    },
+    success : function(json) {
+      console.log(json); // log the returned json to the console
+      console.log("success"); // another sanity check
+      $('body').pgNotification({'style':'flip', 'message':json}).show();
+      
+    },
+    error : function(xhr,errmsg,err) {
+        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+    }
+  })
+}
+
+$('#stripe-form').on('submit', function(event){
+    event.preventDefault();
+    console.log("form submitted!")  // sanity check
+    create_post();
+});
+  
+function create_post() {
+    console.log("create post is working!") // sanity check
+    $.ajax({
+        url : "/service/stripe_save", // the endpoint
+        type : "POST", // http method
+        data : { 
+          "stripe" : $('#stripe-text').val(),
+          'csrfmiddlewaretoken': '{{csrf_token}}' }, // data sent with the post request
+
+        // handle a successful response
+        success : function(json) {
+            console.log(json); // log the returned json to the console
+            console.log("success"); // another sanity check
+            $('body').pgNotification({'style':'flip', 'message':json}).show();
+
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+};
+
+
+  $('input:checkbox').change(
+    function(){
+        if ($(this).is(':checked')) {
+            $(this).parent().parent().prev().children().children().attr("disabled", true).val('')
+            // .children().attr('disabled', true).val('')
+            // $(this).css('backgrounnd-color', 'blue')
+            // console.log($(this)[0].nodename)
+        }
+        else {
+            $(this).parent().parent().prev().children().children().attr("disabled", false)
+          
+        }
+    });
+
+  
+
+
+
+function goBack() {
+    window.history.back();
+}
+  $("#state").val("{{ info.state }}")
+
+    $(function() {
+      $("#phone").mask('(000) 000-0000', {"placeholder":"(000) 000-0000"}); 
+      
+      $(".timepicker").timepicker({ timeFormat: 'h:i A'})
+      
+      // $('.timepicker').timepicker().on('show.timepicker', function(e) {
+      //     $(".timepicker").timepicker("hideWidget");
+          // var widget = $('.bootstrap-timepicker-widget');
+          // widget.find('.glyphicon-chevron-up').removeClass().addClass('pg-arrow_maximize');
+          // widget.find('.glyphicon-chevron-down').removeClass().addClass('pg-arrow_minimize');
+      // });
+    });
+});
+    
+    
+// AWS S3    
+    var albumBucketName = 'bm-nailsalon-3';
+    var bucketRegion = 'us-west-2';
+    var IdentityPoolId = 'us-west-2:74ad18cc-4022-41d9-b6d0-6791b3ca441c';
+    
+    AWS.config.update({
+      region: bucketRegion,
+      credentials: new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: IdentityPoolId
+      })
+    });
+    
+    var s3 = new AWS.S3({
+      apiVersion: '2006-03-01',
+      params: {Bucket: albumBucketName}
+    });
+  
+
+function addPhoto(loc) {
+  var files = document.getElementById(loc).files;
+  console.log(files)
+  if (!files.length) {
+    return alert('Please choose a file to upload first.');
+  }
+  var file = files[0];
+  var fileName = file.name;
+  
+  var photoKey = fileName;
+  s3.upload({
+    Key: photoKey,
+    Body: file,
+    ACL: 'public-read'
+  }, function(err, data) {
+    if (err) {
+      return alert('There was an error uploading your photo: ', err.message);
+    }
+    else
+      $("#"+loc+"_form").val("https://s3-us-west-2.amazonaws.com/bm-nailsalon-3/" + file.name)
+      $("#target").submit()
+
+    alert('Successfully uploaded photo.');
+  });
+}
+
+
+function getHtml(template) {
+  return template.join('\n');
+}
+function fileCheck() {
+  var files = document.getElementById("dash").files;
+  if (files.length) {
+    addPhoto(files)
+    $("#dash_form").val("https://s3-us-west-2.amazonaws.com/bm-nailsalon-3/" + files[0].name)
+  }
+  var files_appt = document.getElementById("appt").files;
+  console.log("Files: " + files_appt)
+  if (files_appt.length){
+    console.log("appt button")
+    addPhoto(files_appt)
+    $("#appt_form").val("https://s3-us-west-2.amazonaws.com/bm-nailsalon-3/" + files_appt[0].name)
+  }  
+}
+// function viewAlbum(albumName) {
+//   var albumPhotosKey = encodeURIComponent(albumName) + '/';
+//   s3.listObjects({Prefix: albumPhotosKey}, function(err, data) {
+//     if (err) {
+//       return alert('There was an error viewing your album: ' + err.message);
+//     }
+//     // `this` references the AWS.Response instance that represents the response
+//     var href = this.request.httpRequest.endpoint.href;
+//     var bucketUrl = href + albumBucketName + '/';
+
+//     var photos = data.Contents.map(function(photo) {
+//       var photoKey = photo.Key;
+//       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
+//       return getHtml([
+//         '<span>',
+//           '<div>',
+//             '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
+//           '</div>',
+//           '<div>',
+//             '<span onclick="deletePhoto(\'' + albumName + "','" + photoKey + '\')">',
+//               'X',
+//             '</span>',
+//             '<span>',
+//               photoKey.replace(albumPhotosKey, ''),
+//             '</span>',
+//           '</div>',
+//         '<span>',
+//       ]);
+//     });
+//     var message = photos.length ?
+//       '<p>Click on the X to delete the photo</p>' :
+//       '<p>You do not have any photos in this album. Please add photos.</p>';
+//     var htmlTemplate = [
+//       '<h2>',
+//         'Album: ' + albumName,
+//       '</h2>',
+//       message,
+//       '<div>',
+//         getHtml(photos),
+//       '</div>',
+//       '<input id="photoupload" type="file" accept="image/*">',
+//       '<button id="addphoto" onclick="addPhoto(\'' + albumName +'\')">',
+//         'Add Photo',
+//       '</button>',
+//       '<button onclick="listAlbums()">',
+//         'Back To Albums',
+//       '</button>',      
+//     ]
+//     document.getElementById('app').innerHTML = getHtml(htmlTemplate);
+//   });
+// }
+/*
+function listAlbums() {
+  s3.listObjects({Delimiter: '/'}, function(err, data) {
+    if (err) {
+      return alert('There was an error listing your albums: ' + err.message);
+    } else {
+      var albums = data.ComMondayPrefixes.map(function(commonPrefix) {
+        var prefix = commonPrefix.Prefix;
+        var albumName = decodeURIComponent(prefix.replace('/', ''));
+        return getHtml([
+          '<li>',
+            '<span onclick="deleteAlbum(\'' + albumName + '\')">X</span>',
+            '<span onclick="viewAlbum(\'' + albumName + '\')">',
+              albumName,
+            '</span>',
+          '</li>'
+        ]);
+      });
+      var message = albums.length ?
+        getHtml([
+          '<p>Click on an album name to view it.</p>',
+          '<p>Click on the X to delete the album.</p>'
+        ]) :
+        '<p>You do not have any albums. Please Create album.';
+      var htmlTemplate = [
+        '<h2>Albums</h2>',
+        message,
+        '<ul>',
+          getHtml(albums),
+        '</ul>',
+        '<button onclick="createAlbum(prompt(\'Enter Album Name:\'))">',
+          'Create New Album',
+        '</button>'
+      ]
+      document.getElementById('app').innerHTML = getHtml(htmlTemplate);
+    }
+  });
+}
+function createAlbum(albumName) {
+  albumName = albumName.trim();
+  if (!albumName) {
+    return alert('Album names must contain at least one non-space character.');
+  }
+  if (albumName.indexOf('/') !== -1) {
+    return alert('Album names cannot contain slashes.');
+  }
+  var albumKey = encodeURIComponent(albumName) + '/';
+  s3.headObject({Key: albumKey}, function(err, data) {
+    if (!err) {
+      return alert('Album already exists.');
+    }
+    if (err.code !== 'NotFound') {
+      return alert('There was an error creating your album: ' + err.message);
+    }
+    s3.putObject({Key: albumKey}, function(err, data) {
+      if (err) {
+        return alert('There was an error creating your album: ' + err.message);
+      }
+      alert('Successfully created album.');
+      viewAlbum(albumName);
+    });
+  });
+}
+function deletePhoto(albumName, photoKey) {
+  s3.deleteObject({Key: photoKey}, function(err, data) {
+    if (err) {
+      return alert('There was an error deleting your photo: ', err.message);
+    }
+    alert('Successfully deleted photo.');
+    viewAlbum(albumName);
+  });
+}
+function deleteAlbum(albumName) {
+  var albumKey = encodeURIComponent(albumName) + '/';
+  s3.listObjects({Prefix: albumKey}, function(err, data) {
+    if (err) {
+      return alert('There was an error deleting your album: ', err.message);
+    }
+    var objects = data.Contents.map(function(object) {
+      return {Key: object.Key};
+    });
+    s3.deleteObjects({
+      Delete: {Objects: objects, Quiet: true}
+    }, function(err, data) {
+      if (err) {
+        return alert('There was an error deleting your album: ', err.message);
+      }
+      alert('Successfully deleted album.');
+      listAlbums();
+    });
+  });
+}
+*/
+</script>
+
+{% endblock %}

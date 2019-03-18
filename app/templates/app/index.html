@@ -1,0 +1,335 @@
+{% extends 'app/cust_base.html' %} {% block content %}
+
+<body id="start_nicdark_framework">
+
+    <!--start preloader-->
+    <!-- <div class="nicdark_preloader">
+    <i class="icon-heart-filled blue"></i>
+</div> -->
+    <!--end preloader-->
+
+    <div class="nicdark_site">
+        <div class="nicdark_site_fullwidth nicdark_clearfix">
+            <div class="nicdark_overlay"></div>
+            <div id="nicdark_parallax_1" class="nicdark_section nicdark_imgparallax" style="background: url({{ info.dash_image }}) 50% 0px / cover fixed;">
+
+
+                <!--start nicdark_container-->
+                <div class="nicdark_container nicdark_clearfix">
+
+                    <div class="nicdark_space100"></div>
+                    <div class="nicdark_space100"></div>
+                    <div class="nicdark_space100"></div>
+
+                    <div class="grid grid_6">
+
+                        <div class="nicdark_focus center">
+                            <h1 style="font-size:60px;" class="white extrasize signature">{{ info.name }}</h1>
+                            <div class="nicdark_space30"></div>
+                            <!--<a href="{% url 'app:appointment' %}" class="nicdark_press white nicdark_btn nicdark_bg_bluedark medium title">REQUEST AN APPOINTMENT</a>-->
+                        </div>
+
+                    </div>
+
+                    <div class="nicdark_space100"></div>
+                    <div class="nicdark_space100"></div>
+
+                </div>
+
+
+            </div>
+            <!--start section-->
+            <section class="nicdark_section">
+                <!--start nicdark_container-->
+                <div class="nicdark_container nicdark_clearfix">
+                    <div class="nicdark_space40"></div>
+                    <div class="grid grid_4">
+                        <div class="nicdark_archive1 nicdark_border_grey  ">
+                            <div class="nicdark_margin20 nicdark_relative">
+                                <a href="tel:+1-626-335-5252" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_orangedark extrabig white nicdark_absolute"><i class="icon-phone"></i></a>
+                                <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
+                                    <h4>CALL US</h4>
+                                    <div class="nicdark_space20"></div>
+                                    <p>Phone: <a href="tel:+1-626-335-5252">{{ info.phone }}</a><br />
+                                        <a href="mailto:{{ info.email }}">{{ info.email }}</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nicdark_space20"></div>
+
+                        <div class="nicdark_archive1 nicdark_border_grey  ">
+                            <div class="nicdark_margin20 nicdark_relative">
+                                <a href="#" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_violetdark extrabig white nicdark_absolute"><i class="icon-clock"></i></a>
+                                <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
+                                    
+                                    <h4>Hours</h4>
+                                    <div class="nicdark_space20"></div>
+                                    <p>
+                                        {% if sun.is_closed == True %}
+                                        Sun: Closed<br>
+                                        {% else %}
+                                        Sun: {{sun.open_time}} - {{sun.close_time}}<br /> 
+                                        {% endif %}
+                                        {% if mon.is_closed == True %}
+                                        Mon: Closed<br>
+                                        {% else %}
+                                        Mon: {{mon.open_time}} - {{mon.close_time}}<br /> 
+                                        {% endif %}
+                                        {% if tue.is_closed == True %}
+                                        Tue: Closed<br>
+                                        {% else %}
+                                        Tues: {{tue.open_time}} - {{tue.close_time}}<br /> 
+                                        {% endif %}
+                                        {% if wed.is_closed == True %}
+                                        Wed: Closed<br>
+                                        {% else %}
+                                        Wed: {{wed.open_time}} - {{wed.close_time}}<br /> 
+                                        {% endif %}
+                                        {% if thu.is_closed == True %}
+                                        Thurs: Closed<br>
+                                        {% else %}
+                                        Thurs: {{thu.open_time}} - {{thu.close_time}}<br /> 
+                                        {% endif %}
+                                        {% if fri.is_closed == True %}
+                                        Fri: Closed<br>
+                                        {% else %}
+                                        Fri: {{fri.open_time}} - {{fri.close_time}}<br /> 
+                                        {% endif %}
+                                        {% if sat.is_closed == True %}
+                                        Sat: Closed<br>
+                                        {% else %}
+                                        Sat: {{sat.open_time}} - {{sat.close_time}}<br /> 
+                                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid_8">
+                        <div id="map-canvas" style="width:100%; height:450px; float:left; margin:0px; padding:0px;"></div>
+                    </div>
+                    <div class="nicdark_space10"></div>
+                    {% if social != None %}
+                    <div class="grid grid_12">
+                        {% if social.facebook != "" %}
+                        <a href="https://www.facebook.com/{{ facebook.username }}" target="_blank" class="nicdark_btn nicdark_bg_bluedark medium white nicdark_margin10"><i class="icon-facebook-1"></i>&nbsp;&nbsp;&nbsp;Facebook</a> {% endif %} 
+                        {% if social.twitter != "" %}
+                        <a href="https://twitter.com/{{ twitter.username }}" target="_blank" class="nicdark_btn nicdark_bg_bluedark medium white nicdark_margin10"><i class="icon-facebook-1"></i>&nbsp;&nbsp;&nbsp;Twitter</a> {% endif %} 
+                        {% if social.instagram != "" %}
+                        <a href="https://www.instagram.com/{{ instagram.username }}" target="_blank" class="nicdark_btn nicdark_bg_bluedark medium white nicdark_margin10"><i class="icon-instagramm"></i>&nbsp;&nbsp;&nbsp;Instagram</a> {% endif %}
+                    </div>
+                    {% endif %}
+                    <!--end nicdark_container-->
+            </section>
+            <!--end section-->
+            </div>
+        </div>
+        <!--main-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--Jquery-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+        <!--Jquery UI-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/excanvas.js"></script>
+        <!--canvas need for ie-->
+        <!--plugins-->
+        <script src="static/app/js/plugins/revslider/jquery.themepunch.tools.min.js"></script>
+        <!--revslider-->
+        <script src="static/app/js/plugins/revslider/jquery.themepunch.revolution.min.js"></script>
+        <!--revslider-->
+
+        <!--menu-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.9/css/superfish.min.css"></script>
+        <!--superfish-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/TinyNav.js/1.2.0/tinynav.min.js"></script>
+        <!--tinynav-->
+
+        <!--other-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.5/isotope.pkgd.min.js"></script>
+        <!--isotope-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!--mpopup-->
+        <script src="static/app/js/plugins/scroolto/scroolto.js"></script>
+        <!--Scrool To-->
+        <script src="static/app/js/plugins/nicescrool/jquery.nicescroll.min.js"></script>
+        <!--Nice Scroll-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js"></script>
+        <!--inview-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+        <!--parallax-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.js"></script>
+        <!--jquery.countTo-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countdown/2.0.2/jquery.countdown.js"></script>
+        <!--countdown-->
+
+        <!--settings-->
+        <script src="static/app/js/settings.js"></script>
+        <!--settings-->
+        <!-- Google Map API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWjGNvQ4ciDv91edoVJKukEMdYjoRzyeU&callback=myMap"></script>
+        
+        <!--custom js-->
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+
+                //START PARALLAX SECTIONS
+                $('#nicdark_parallax_1').parallax("50%", 0.3);
+                // $('#nicdark_parallax_2').parallax("50%", 0.3);
+                // $('#nicdark_parallax_3').parallax("50%", 0.3);
+                // $('#nicdark_parallax_4').parallax("50%", 0.3);
+                //END PARALLAX SECTIONS
+
+
+
+                //map
+                var map;
+                var address = new google.maps.LatLng({{ info.lat }}, {{ info.lon }});
+                var MY_MAPTYPE_ID = 'custom_style';
+
+                function initialize() {
+
+
+
+
+                    var featureOpts = [{
+                            "featureType": "landscape",
+                            "elementType": "labels",
+                            "stylers": [{
+                                "visibility": "off"
+                            }]
+                        },
+                        {
+                            "featureType": "transit",
+                            "elementType": "labels",
+                            "stylers": [{
+                                "visibility": "off"
+                            }]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels",
+                            "stylers": [{
+                                "visibility": "off"
+                            }]
+                        },
+                        {
+                            "featureType": "water",
+                            "elementType": "labels",
+                            "stylers": [{
+                                "visibility": "off"
+                            }]
+                        },
+                        {
+                            "featureType": "road",
+                            "elementType": "labels.icon",
+                            "stylers": [{
+                                "visibility": "off"
+                            }]
+                        },
+                        {
+                            "stylers": [{
+                                    "hue": "#00aaff"
+                                },
+                                {
+                                    "saturation": -100
+                                },
+                                {
+                                    "gamma": 2.15
+                                },
+                                {
+                                    "lightness": 12
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road",
+                            "elementType": "labels.text.fill",
+                            "stylers": [{
+                                    "visibility": "on"
+                                },
+                                {
+                                    "lightness": 24
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road",
+                            "elementType": "geometry",
+                            "stylers": [{
+                                "lightness": 57
+                            }]
+                        }
+                    ];
+
+
+
+                    var mapOptions = {
+                        zoom: 15,
+                        center: address,
+                        disableDefaultUI: true,
+                        scrollwheel: false,
+                        mapTypeControlOptions: {
+                            mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+                        },
+                        mapTypeId: MY_MAPTYPE_ID
+                    };
+
+                    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                    var styledMapOptions = {
+                        name: 'Custom Style'
+                    };
+
+                    var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+
+                    map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+
+
+                    var contentString = '<div class="nicdark_margin20 nicdark_relative"><a href="https://www.google.com/maps/search/?api=1&query={{ info.lat }}, {{ info.lon }}" target="_blank" class="nicdark_displaynone_responsive nicdark_btn_icon extrabig nicdark_bg_greendark white nicdark_absolute"><i class="icon-home-1"></i></a><div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_responsive"><h4>{{ info.name }}</h4><div class="nicdark_space20"></div><p>{{ info.address }}<br>{{ info.city }}, {{ info.state }} {{ info.zipcode }}</p></div></div>';
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+
+                    var image = new google.maps.MarkerImage("static/app/img/icons/map.png", null, null, null, new google.maps.Size(50, 50));
+
+                    var positionpin = new google.maps.LatLng({{ info.lat }}, {{ info.lon }});
+
+                    var marker = new google.maps.Marker({
+                        position: positionpin,
+                        icon: image,
+                        map: map,
+                        flat: true,
+                        title: 'Uluru (Ayers Rock)'
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map, marker);
+                    });
+                    infowindow.open(map, marker);
+
+
+                }
+
+                google.maps.event.addDomListener(window, 'load', initialize);
+                //map
+
+
+            });
+        </script>
+        <!--custom js-->
+
+
+
+        <!--start preloader-->
+        <script type="text/javascript">
+            // jQuery(window).load(function() {
+            //     jQuery(".nicdark_preloader").delay(20).fadeOut("slow");
+            // })
+        </script>
+        <!--end preloader-->
+
+        <!--start gogole analytics-->
+        <!--end gogole analytics-->
+
+
+</body>
+{% endblock %}
