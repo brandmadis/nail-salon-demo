@@ -16,7 +16,7 @@ python_version = "3.6"
 django-heroku = "*"
 gunicorn = "*"
 python-dateutil = "*"
-
+stripe="*"
 
 [dev-packages]
 
