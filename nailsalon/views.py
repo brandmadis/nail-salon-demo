@@ -128,9 +128,10 @@ def settings(request):
       Hours.objects.create(day="Thursday", day_order=5, open_time=parse("8:00 AM"), close_time=parse("9:00 PM"))
       Hours.objects.create(day="Friday", day_order=6, open_time=parse("8:00 AM"), close_time=parse("9:00 PM"))
       Hours.objects.create(day="Saturday", day_order=7, open_time=parse("8:00 AM"), close_time=parse("9:00 PM"))   
- 
   else:
       days = Hours.objects.all()
+      
+      
   if len(SocialMedia.objects.all()) == 0:
       SocialMedia.objects.create(social_media = "Facebook", username="FlashyNails")
       SocialMedia.objects.create(social_media = "Twitter", username="@FlashyNails")
@@ -153,7 +154,7 @@ def settings(request):
       "hours":Hours.objects.all().order_by("day_order"),
       "stripe":Stripe.objects.first(),
       }  
-  return render(request, 'nailsalon/settings.html')
+  return render(request, 'nailsalon/settings.html', context)
   
 def appt_add(request):
   return render(request, 'nailsalon/appt_add.html')  
