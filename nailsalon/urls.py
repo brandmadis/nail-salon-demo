@@ -21,6 +21,7 @@ urlpatterns = [
     path('appt_edit/<id>', views.appt_edit, name='appt_edit'),
     path('appt_delete/<id>', views.appt_delete, name='appt_delete'),
     path('load', views.load, name='load'),
+    path('image_save', views.image_save, name='image_save'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

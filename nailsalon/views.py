@@ -257,3 +257,13 @@ def reset(request):
     if Stripe.objects.first() != None:
         Stripe.objects.first().delete()
     return HttpResponseRedirect("/settings")
+    
+def image_save(request):
+    images = CompanyInfo.objects.first()
+    if request.POST['dash_form']:
+        images.dash_image = request.POST['dash_form']
+        # images.save()
+    if request.POST['appt_form']:
+        images.appt_image = request.POST['appt_form']
+    images.save()
+    return HttpResponseRedirect("/settings")
