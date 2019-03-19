@@ -7,13 +7,13 @@ import stripe
 # front end
 
 def index(request):
-  mon=Hours.objects.filter(day="Monday")
-  tue=Hours.objects.filter(day="Tuesday")
-  wed=Hours.objects.filter(day="Wednesday")
-  thu=Hours.objects.filter(day="Thursday")
-  fri=Hours.objects.filter(day="Friday")
-  sat=Hours.objects.filter(day="Saturday")
-  sun=Hours.objects.filter(day="Sunday")  
+  mon=Hours.objects.get(day="Monday")
+  tue=Hours.objects.get(day="Tuesday")
+  wed=Hours.objects.get(day="Wednesday")
+  thu=Hours.objects.get(day="Thursday")
+  fri=Hours.objects.get(day="Friday")
+  sat=Hours.objects.get(day="Saturday")
+  sun=Hours.objects.get(day="Sunday")  
   context = {
       "mon":mon,
       "tue":tue,
@@ -190,8 +190,8 @@ def load(request):
           email = "info@pastel.com",
           lat = "34.1291887",
           lon = "-117.872967",
-          dash_image = "https://s3-us-west-2.amazonaws.com/bm-nailsalon-3/flower.jpg",
-          appt_image = "https://s3-us-west-2.amazonaws.com/bm-nailsalon-3/flower.jpg"
+          dash_image = "https://s3-us-west-2.amazonaws.com/bm-nailsalon-3/Hydrangeas.jpg",
+          appt_image = "https://s3-us-west-2.amazonaws.com/bm-nailsalon-3/Chrysanthemum.jpg"
           )
   if Stripe.objects.first() == None:
       Stripe.objects.create(
